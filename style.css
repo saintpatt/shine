@@ -1,0 +1,53 @@
+* {margin: 0; padding: 0;}
+
+:root {
+--light: 0.1;
+--shine: 5px;
+}
+
+html {
+font-size: 10px;
+font-family: 'Permanent Marker', cursive;
+}
+
+body {
+height: 100vh;
+background-image: url('brooklyn-bridge.jpg');
+background-size: cover; 
+background-position: center right;
+overflow: hidden;
+}
+
+.night {
+height: 100vh;
+background-color: #000;
+opacity: calc(1 - var(--light));
+}
+
+.turnOn {
+font-size: 6rem;
+color: #fff;
+position: absolute;
+bottom: 5%;
+left: 3%;
+letter-spacing: 0.7rem;
+text-shadow: rgba(255, 255, 255, 0.8) 0 0 calc(5 * var(--shine)), rgba(255, 255, 255, 0.8) 0 0 var(--shine);
+opacity: var (--light);
+}
+
+.fa {
+font-size: 10rem;
+letter-spacing: 2rem;
+}
+
+input {
+position: absolute;
+left: 5%;
+top: 3%;
+width: 300px;
+height: 100px;
+}
+
+@media (min-width: 1025px) {
+html {font-size: 11px;}
+}
