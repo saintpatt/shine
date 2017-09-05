@@ -12,7 +12,7 @@ font-family: 'Permanent Marker', cursive;
 
 body {
 height: 100vh;
-background-image: url('brooklyn-bridge.jpg');
+background-image: url(https://s26.postimg.org/ssviz47qx/brooklyn-bridge.jpg);
 background-size: cover; 
 background-position: center right;
 overflow: hidden;
