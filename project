@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Brooklyn Bridge at night</title>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <style> 
+
+    * {margin: 0; padding: 0;}
+
+    :root {
+    --light: 0.1;
+    --shine: 5px;
+    }
+
+    html {
+    font-size: 10px;
+    font-family: 'Permanent Marker', cursive;
+    }
+
+    body {
+    height: 100vh;
+    background-image: url('brooklyn-bridge.jpg');
+    background-size: cover; 
+    background-position: center right;
+    overflow: hidden;
+    }
+
+    .night {
+    height: 100vh;
+    background-color: #000;
+    opacity: calc(1 - var(--light));
+    }
+
+    .turnOn {
+    font-size: 6rem;
+    color: #fff;
+    position: absolute;
+    bottom: 5%;
+    left: 3%;
+    letter-spacing: 0.7rem;
+    text-shadow: rgba(255, 255, 255, 0.8) 0 0 calc(5 * var(--shine)), rgba(255, 255, 255, 0.8) 0 0 var(--shine);
+    opacity: var (--light);
+    }
+
+    .fa {
+    font-size: 10rem;
+    letter-spacing: 2rem;
+    }
+
+    input {
+    position: absolute;
+    left: 5%;
+    top: 3%;
+    width: 300px;
+    height: 100px;
+    }
+
+    @media (min-width: 1025px) {
+    html {font-size: 11px;}
+    }
+        
+    </style>
+</head>
+
+<body>
+    <div class="night"></div>
+    <div class="turnOn"><i class="fa fa-adjust" aria-hidden="true"></i><span>100</span>%</div>
+    <input type="range" name="turnOn" min="0" max="100" value="10">
+    
+    <script>
+    const input = document.querySelector("input");
+    input.addEventListener("change", updateValue);
+    input.addEventListener("mousemove", updateValue);
+        
+    function updateValue() {
+    //console.log(this.value); 
+    const percent = document.querySelector("span");
+    percent.textContent = this.value;
+    //console.log(percent.textContent);
+    document.documentElement.style.setProperty("--light", this.value/100);
+    document.documentElement.style.setProperty("--shine", this.value/4 + "px")
+    }
+    </script>
+    
+</body>
+</html>
